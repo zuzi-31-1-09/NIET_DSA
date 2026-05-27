@@ -1,21 +1,29 @@
-def two_sum_optimized(nums, target):
-    seen_numbers = {} # This is our Hash Map (Value : Index)
-    
-    for current_index, current_num in enumerate(nums):
-        complement = target - current_num
-        
-        # Check if the needed number is already in our map
-        if complement in seen_numbers:
-            return [seen_numbers[complement], current_index]
-            
-        # If not found, store the current number and its position
-        seen_numbers[current_num] = current_index
-        
-    return []
+# Function to multiply two 2x2 matrices
+def multiply_matrices(A, B):
+    # Create a 2x2 result matrix filled with zeros
+    result = [[0, 0], 
+              [0, 0]]
+              
+    # Loop through rows of A
+    for i in range(2):
+        # Loop through columns of B
+        for j in range(2):
+            # Loop to calculate dot product
+            for k in range(2):
+                result[i][j] += A[i][k] * B[k][j]
+                
+    return result
 
-# Test with the same numbers
-numbers = [2, 7, 11, 15]
-target_sum = 9
+# Define two 2x2 matrices (Unit 1 Math Style!)
+matrix_A = [[1, 2], 
+            [3, 4]]
 
-result = two_sum_optimized(numbers, target_sum)
-print(f"Optimized search found indices: {result}")
+matrix_B = [[5, 6], 
+            [7, 8]]
+
+# Run the multiplication
+output = multiply_matrices(matrix_A, matrix_B)
+
+print("Matrix A x Matrix B Result:")
+for row in output:
+    print(row)
