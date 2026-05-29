@@ -1,3 +1,4 @@
+from typing import List
 class Solution:
     def minElement(self, nums: List[int]) -> int:
         # Initialize the global minimum to a very large number
